@@ -1,0 +1,17 @@
+[Unit]
+Requires=systemd-networkd.socket
+After=systemd-networkd.socket
+
+[Service]
+#ExecStartPre=/lib/systemd/systemd-networkd-wait-online --interface=enp2s0
+ExecStart=/usr/bin/node /root/pi-power-manager/listener.js
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=energy-listener
+Environment=NODE_ENV=production
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

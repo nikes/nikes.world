@@ -1,0 +1,17 @@
+[Unit]
+Requires=systemd-networkd.socket
+After=systemd-networkd.socket
+
+[Service]
+#ExecStartPre=/lib/systemd/systemd-networkd-wait-online --interface=eth0
+ExecStart=/usr/bin/node /home/pi/power-manager/reporter.js
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=energy-reporter
+Environment=NODE_ENV=production
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
