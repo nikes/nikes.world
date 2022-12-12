@@ -2,10 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nikes Energy</title>
+    <title>Nikes World</title>
 </head>
 <body>
+<div>
+    <h1>Nikes World</h1>
+    <p>My name is Nikes and I am a developer.</p>
 
+    <div class="energy__wrap">
+        <div class="energy-status">
+            <label>Energy Status:</label>
+            <span id="energy-status"></span>
+        </div>
+        <div class="energy-status">
+            <label>Last Update:</label>
+            <span id="energy-last-update"></span>
+        </div>
+    </div>
+</div>
+<style>
+    body {
+        overflow: hidden;
+        height: 100vh;
+        width: 100%;
+
+        background: #17191D;
+        color: #DFEBF4;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #energy-status {
+        font-weight: bolder;
+    }
+
+    .energy__wrap {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .energy-status {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .energy-status label {
+        margin-right: 4px;
+    }
+
+    .online {
+        color: #6BF1B1;
+    }
+
+    .offline {
+        color: #FF5F5F;
+    }
+
+    .ups {
+        color: #FFBF5F;
+    }
+</style>
 <script src="app.js"></script>
 </body>
 </html>
