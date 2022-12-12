@@ -4,8 +4,13 @@
   elementStatus.innerText = 'Connecting...';
 
   let ws;
+  let currentStatus;
 
   function setState(state) {
+    if (currentStatus === state) {
+      return;
+    }
+    currentStatus = state;
     elementStatus.classList.remove(...elementStatus.classList);
     if (state === 'offline') {
       elementStatus.innerText = 'Offline';
