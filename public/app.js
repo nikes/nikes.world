@@ -43,7 +43,7 @@
   }
 
   function connect() {
-    ws = new WebSocket(`wss://nikes.world`);
+    ws = new WebSocket(`wss://${location.host}`);
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data);
       if ((Date.now() - data.last) < 60_000 && data.data) {
