@@ -1,0 +1,191 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    background-color: #141414;
+    font-family: 'Montserrat', sans-serif;
+    color: #CBCBCB;
+    line-height: 1.4;
+}
+
+.shimmer {
+    animation: 7s forwards infinite shimmer linear;
+    background-size: 550px 100%;
+}
+
+.shimmer--online {
+    background: rgba(107, 241, 177, 0.03);
+    background: linear-gradient(
+            70deg,
+            rgba(107, 241, 177, 0.03) 18%,
+            rgba(107, 241, 177, 0.06) 48%,
+            rgba(107, 241, 177, 0.03) 48%
+    );
+}
+
+.shimmer--reserve {
+    background: rgba(255, 191, 95, 0.03);
+    background: linear-gradient(
+            70deg,
+            rgba(255, 191, 95, 0.03) 18%,
+            rgba(255, 191, 95, 0.06) 48%,
+            rgba(255, 191, 95, 0.03) 48%
+    );
+}
+
+.shimmer--connecting,
+.shimmer--offline {
+    background: rgba(255, 95, 95, 0.03);
+    background: linear-gradient(
+            70deg,
+            rgba(255, 95, 95, 0.03) 18%,
+            rgba(255, 95, 95, 0.06) 48%,
+            rgba(255, 95, 95, 0.03) 48%
+    );
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -550px 0;
+    }
+    100% {
+        background-position: 550px 0;
+    }
+}
+
+@-webkit-keyframes shimmer {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+.nw {
+    width: 100%;
+    max-width: 630px;
+
+    margin: auto;
+    padding: 40px;
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.nw__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    grid-gap: 16px;
+}
+
+.nw__header img {
+    width: 32px;
+}
+
+.nw__title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #CBCBCB;
+}
+
+.nw__description {
+    margin-bottom: 32px;
+    font-size: 20px;
+    color: #575757;
+}
+
+.nw__description img {
+    vertical-align: sub;
+}
+
+.energy-status {
+    padding: 24px 40px;
+    border-radius: 8px;
+}
+
+.energy-status--online {
+    background-color: rgba(107, 241, 177, 0.03);
+    border: 1px solid rgba(107, 241, 177, 0.2);
+}
+
+.energy-status--online .energy-status__status {
+    color: #6BF1B1;
+}
+
+
+.energy-status--reserve {
+    background-color: rgba(255, 191, 95, 0.03);
+    border: 1px solid rgba(255, 191, 95, 0.2);
+}
+
+.energy-status--reserve .energy-status__status {
+    color: #FFBF5F;
+}
+
+.energy-status--offline {
+    background-color: rgba(255, 95, 95, 0.03);
+    border: 1px solid rgba(255, 95, 95, 0.2);
+}
+
+.energy-status--connecting .energy-status__status,
+.energy-status--offline .energy-status__status {
+    color: #FF5F5F;
+}
+
+.energy-status__header {
+    display: flex;
+    align-items: center;
+    grid-gap: 16px;
+    margin-bottom: 16px;
+    font-size: 24px;
+}
+
+.energy-status__status {
+    display: flex;
+    align-items: center;
+    grid-gap: 10px;
+    font-weight: 500;
+}
+
+.energy-status__last-update {
+    color: #575757;
+}
+
+@media screen and (max-width: 576px) {
+    .nw {
+        padding: 16px;
+    }
+
+    .nw__description {
+        margin-bottom: 16px;
+        font-size: 18px;
+    }
+
+    .energy-status {
+        padding: 16px 24px;
+    }
+
+    .energy-status__header {
+        font-size: 18px;
+    }
+
+    .energy-status__status img {
+        width: 24px;
+        height: auto;
+    }
+
+    .energy-status__header {
+        margin-bottom: 8px;
+    }
+
+    .energy-status__last-update {
+        font-size: 14px;
+    }
+}

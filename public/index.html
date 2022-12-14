@@ -2,25 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Nikes World</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <style>
-        body {
-            font-family: "Roboto Light", sans-serif;
-        }
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="styles.css">
 
-        .energy-status {
-            line-height: 1.5;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<a href="https://github.com/nikes" target="_blank" class="github-corner"
-   aria-label="View my GitHub">
+<a href="https://github.com/nikes/nikes.world" target="_blank" class="github-corner"
+   aria-label="View project on GitHub">
     <svg width="90" height="90" viewBox="0 0 250 250"
          style="fill:#151513;color:#fff;position:absolute;top:0;border:0;left:0;transform:scale(-1,1);z-index:9999"
          aria-hidden="true">
@@ -58,66 +56,29 @@
         }
     </style>
 </a>
-<div>
-    <h1>Nikes World</h1>
-    <p>My name is Nikes and I am a developer.</p>
-
-    <div class="energy__wrap">
-        <div class="energy-status">
-            <label>Energy Status:</label>
-            <span id="energy-status"></span>
+<main class="nw">
+    <div class="nw__header">
+        <img src="images/meme.png" class="nw__meme" alt="Meme">
+        <div class="nw__title">Nikes World</div>
+    </div>
+    <div class="nw__description">
+        <span>My name is Nikes and I am a developer</span>
+        <img src="images/code-icon.svg" alt="Code">
+    </div>
+    <div class="energy-status nw__content energy-status--offline shimmer shimmer--offline" id="energy-status-wrap">
+        <div class="energy-status__header">
+            <div class="energy-status__title">Energy Status:</div>
+            <div class="energy-status__status">
+                <img id="energy-status-icon" src="images/status/offline.svg" alt="Offline">
+                <span id="energy-status">Offline</span>
+            </div>
         </div>
-        <div class="energy-status">
-            <label>Last Update:</label>
-            <span id="energy-last-update"></span>
+        <div class="energy-status__last-update">
+            <span>Last Update:</span>
+            <span id="energy-last-update">00.00.0000, 00:00:00</span>
         </div>
     </div>
-</div>
-<style>
-    body {
-        overflow: hidden;
-        height: 100vh;
-        width: 100%;
-
-        background: #17191D;
-        color: #DFEBF4;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    #energy-status {
-        font-weight: bolder;
-    }
-
-    .energy__wrap {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .energy-status {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
-
-    .energy-status label {
-        margin-right: 4px;
-    }
-
-    .online {
-        color: #6BF1B1;
-    }
-
-    .offline {
-        color: #FF5F5F;
-    }
-
-    .ups {
-        color: #FFBF5F;
-    }
-</style>
+</main>
 <script src="app.js"></script>
 </body>
 </html>
