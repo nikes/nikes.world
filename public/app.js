@@ -1,4 +1,11 @@
 (function () {
+  const titles = {
+    'online': 'Online',
+    'offline': 'Offline',
+    'reserve': 'Reserve Power',
+    'connecting': 'Connecting...',
+  };
+
   let elementStatus = document.getElementById('energy-status-wrap');
   let elementStatusIcon = document.getElementById('energy-status-icon');
   let elementStatusText = document.getElementById('energy-status');
@@ -13,33 +20,12 @@
     }
     let lastState = currentStatus;
     currentStatus = state;
-    if (state === 'connecting') {
-      elementStatusText.innerText = 'Connecting...';
-      elementStatusIcon.hidden = true;
-      elementStatus.classList.replace(`energy-status--${lastState}`, `energy-status--${state}`);
-      elementStatus.classList.replace(`shimmer--${lastState}`, `shimmer--${state}`);
-    }
-    if (state === 'offline') {
-      elementStatusText.innerText = 'Offline';
-      elementStatusIcon.src = 'images/status/offline.svg';
-      elementStatusIcon.hidden = false;
-      elementStatus.classList.replace(`energy-status--${lastState}`, `energy-status--${state}`);
-      elementStatus.classList.replace(`shimmer--${lastState}`, `shimmer--${state}`);
-    }
-    if (state === 'online') {
-      elementStatusText.innerText = 'Online';
-      elementStatusIcon.src = 'images/status/online.svg';
-      elementStatusIcon.hidden = false;
-      elementStatus.classList.replace(`energy-status--${lastState}`, `energy-status--${state}`);
-      elementStatus.classList.replace(`shimmer--${lastState}`, `shimmer--${state}`);
-    }
-    if (state === 'reserve') {
-      elementStatusText.innerText = 'Reserve Power';
-      elementStatusIcon.src = 'images/status/reserve.svg';
-      elementStatusIcon.hidden = false;
-      elementStatus.classList.replace(`energy-status--${lastState}`, `energy-status--${state}`);
-      elementStatus.classList.replace(`shimmer--${lastState}`, `shimmer--${state}`);
-    }
+
+    elementStatusText.innerText = titles[state];
+    elementStatusIcon.src = `images/status/${state}.svg`;
+    elementStatusIcon.hidden = state === 'connecting';
+    elementStatus.classList.replace(`energy-status--${lastState}`, `energy-status--${state}`);
+    elementStatus.classList.replace(`shimmer--${lastState}`, `shimmer--${state}`);
   }
 
   function connect() {
